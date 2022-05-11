@@ -52,7 +52,7 @@ class SeleniumDtrInteraction(SeleniumInteraction):
             sleep(1.2)
 
     def fill_cep_field(self) -> None:
-        WebDriverWait(self.browser, 14).until(
+        WebDriverWait(self.browser, 25).until(
             ec.presence_of_element_located((By.ID, "vcCepCalculoFrete"))
         ).send_keys(self.cep)
 

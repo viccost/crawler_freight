@@ -4,6 +4,7 @@ import pandas as pd
 from chrome_options import ChromeOptions
 from interaction_models.selenium_interaction_frp import SeleniumFrpInteraction
 from interaction_models.selenium_interaction_dtr import SeleniumDtrInteraction
+from interaction_models.selenium_interaction_l import SeleniumLdmInteraction
 
 from output_data import SpreadsheetOutputData
 
@@ -52,7 +53,7 @@ def main():
     to_scraping = transform_in_dict(planilha_to_scrape)
 
     # settings
-    interaction_model = SeleniumFrpInteraction
+    interaction_model = SeleniumLdmInteraction
 
     cont = 0
     for record_to_collect in to_scraping:
@@ -89,4 +90,3 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         output.save_collected_data()
-

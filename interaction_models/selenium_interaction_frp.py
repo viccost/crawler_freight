@@ -28,14 +28,13 @@ class SeleniumFrpInteraction(SeleniumInteraction):
     def __init__(self, browser, cep):
         super().__init__(browser, cep)
 
-    def clearfield(self) -> None:
+    def __clearfield(self) -> None:
         WebDriverWait(self.browser, 12).until(
             ec.presence_of_element_located((By.NAME, "postalCode"))
         )
         element = self.browser.find_element_by_name("postalCode")
         element.send_keys(Keys.CONTROL + "a")
         element.send_keys(Keys.DELETE)
-
 
     def fill_cep_field(self) -> None:
         WebDriverWait(self.browser, 14).until(
